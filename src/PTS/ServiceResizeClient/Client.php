@@ -125,7 +125,7 @@ class Client
      *
      * @return $this
      */
-    public function fit(?int $w, ?int $h, $posX = 'center', $posY = 'center'): self
+    public function fit(int $w, int $h, $posX = 'center', $posY = 'center'): self
     {
         $command = new Command('fit', [
             'w'    => $w,

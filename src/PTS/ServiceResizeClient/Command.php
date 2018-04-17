@@ -18,12 +18,12 @@ class Command
 
     public function getParamsQuery(): string
     {
-        $params = [];
+        $paramsQuery = [];
         foreach ($this->params as $name => $val) {
-            $params[] = sprintf('%s:%s', $name, $val);
+            $paramsQuery[] = sprintf('%s:%s', $name, $val);
         }
 
-        return implode(',', $params);
+        return implode(',', $paramsQuery);
     }
 
     public function getName(): string

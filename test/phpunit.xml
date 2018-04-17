@@ -8,6 +8,7 @@
 
     <logging>
         <log type="coverage-clover" target="clover.xml"/>
+        <log type="junit" target="report.xml"/>
     </logging>
 
     <filter>

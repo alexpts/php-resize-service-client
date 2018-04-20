@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-namespace PTS\SymfonyDiLoader;
-
 use PHPUnit\Framework\TestCase;
 use PTS\ServiceResizeClient\Command;
 
@@ -57,6 +55,20 @@ class CommandTest extends TestCase
     {
         $command = new Command($name, $params);
         self::assertSame($name, $command->getName());
+    }
+
+    /**
+     * @param string $name
+     * @param array $params
+     *
+     * @dataProvider getParamsQueryDataProvider
+     */
+    public function testGetParams(string $name, array $params)
+    {
+        $command = new Command($name, $params);
+        $actual = $command->getParams();
+
+        self::assertSame($actual, $params);
     }
 
     /**

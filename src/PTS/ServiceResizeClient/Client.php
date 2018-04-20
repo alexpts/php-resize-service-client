@@ -59,6 +59,18 @@ class Client
     }
 
     /**
+     * @param int $quality
+     *
+     * @return $this
+     */
+    public function quality(int $quality): self
+    {
+        $this->quality = $quality;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function resetCommands(): self
@@ -108,7 +120,7 @@ class Client
      */
     public function crop(int $x = 0, int $y = 0): self
     {
-        $command = new Command('resize', [
+        $command = new Command('crop', [
             'x' => $x,
             'y' => $y,
         ]);
@@ -125,7 +137,7 @@ class Client
      *
      * @return $this
      */
-    public function fit(int $w, int $h, $posX = 'center', $posY = 'center'): self
+    public function fit(?int $w, ?int $h, $posX = 'center', $posY = 'center'): self
     {
         $command = new Command('fit', [
             'w'    => $w,

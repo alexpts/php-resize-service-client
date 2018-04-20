@@ -13,7 +13,9 @@ class Command
     public function __construct(string $name, array $params)
     {
         $this->name = $name;
-        $this->params = $params;
+        $this->params = array_filter($params, function($value) {
+            return $value !== null;
+        });
     }
 
     public function getParamsQuery(): string
@@ -29,5 +31,10 @@ class Command
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getParams(): array
+    {
+        return $this->params;
     }
 }

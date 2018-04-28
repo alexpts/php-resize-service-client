@@ -13,7 +13,7 @@ class Command
     public function __construct(string $name, array $params)
     {
         $this->name = $name;
-        $this->params = array_filter($params, function($value) {
+        $this->params = array_filter($params, function ($value) {
             return $value !== null;
         });
     }

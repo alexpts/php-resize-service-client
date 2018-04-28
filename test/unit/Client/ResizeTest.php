@@ -6,6 +6,9 @@ use GuzzleHttp\Client as HttpClient;
 use PTS\ServiceResizeClient\Client;
 use PTS\ServiceResizeClient\Command;
 
+/**
+ * @covers \PTS\ServiceResizeClient\Client::resize()
+ */
 class ResizeTest extends TestCase
 {
 

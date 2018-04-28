@@ -107,7 +107,7 @@ class Client
             'w' => $w,
             'h' => $h,
         ]);
-        $this->commands[] = $command;
+        $this->pushCommand($command);
 
         return $this;
     }
@@ -124,7 +124,7 @@ class Client
             'x' => $x,
             'y' => $y,
         ]);
-        $this->commands[] = $command;
+        $this->pushCommand($command);
 
         return $this;
     }
@@ -145,7 +145,7 @@ class Client
             'posX' => $posX,
             'posY' => $posY,
         ]);
-        $this->commands[] = $command;
+        $this->pushCommand($command);
 
         return $this;
     }
@@ -178,6 +178,18 @@ class Client
             'm1'    => $m1,
             'm2'    => $m2,
         ]);
+        $this->pushCommand($command);
+
+        return $this;
+    }
+
+    /**
+     * @param Command $command
+     *
+     * @return Client
+     */
+    public function pushCommand(Command $command): self
+    {
         $this->commands[] = $command;
 
         return $this;
@@ -195,8 +207,9 @@ class Client
             'query' => $this->createQueryParams()
         ]);
 
-        if ($response->getStatusCode() !== 200) {
-            throw new RemoteException('Service error', $response->getStatusCode());
+        $statusCode = $response->getStatusCode();
+        if ($statusCode !== 200) {
+            throw new RemoteException('Service error', $statusCode);
         }
 
         return $response;

@@ -5,6 +5,9 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use PTS\ServiceResizeClient\Client;
 
+/**
+ * @covers \PTS\ServiceResizeClient\Client::reset()
+ */
 class ResetTest extends TestCase
 {
 
@@ -36,6 +39,5 @@ class ResetTest extends TestCase
         $quality = new ReflectionProperty(Client::class, 'quality');
         $quality->setAccessible(true);
         self::assertSame(85, $quality->getValue($client));
-
     }
 }

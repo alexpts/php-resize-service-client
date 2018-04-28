@@ -5,6 +5,9 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use PTS\ServiceResizeClient\Client;
 
+/**
+ * @covers \PTS\ServiceResizeClient\Client::quality()
+ */
 class QualityTest extends TestCase
 {
     /**

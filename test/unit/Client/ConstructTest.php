@@ -5,9 +5,11 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client as HttpClient;
 use PTS\ServiceResizeClient\Client;
 
+/**
+ * @covers \PTS\ServiceResizeClient\Client::__construct()
+ */
 class ConstructTest extends TestCase
 {
-
     /**
      * @throws ReflectionException
      */
@@ -17,7 +19,6 @@ class ConstructTest extends TestCase
         $http = $this->createMock(HttpClient::class);
 
         $client = new Client($serviceUrl, $http);
-        self::assertInstanceOf(Client::class, $client);
 
         $prop = new ReflectionProperty(Client::class, 'serviceUrl');
         $prop->setAccessible(true);

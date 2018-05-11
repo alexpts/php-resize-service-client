@@ -151,6 +151,23 @@ class Client
     }
 
     /**
+     * @param int $w
+     * @param int $h
+     *
+     * @return $this
+     */
+    public function maxEdge(int $w, int $h): self
+    {
+        $command = new Command('maxEdge', [
+            'w'    => $w,
+            'h'    => $h,
+        ]);
+        $this->pushCommand($command);
+
+        return $this;
+    }
+
+    /**
      * @param float|null $sigma
      * @param float|null $x1
      * @param float|null $y2

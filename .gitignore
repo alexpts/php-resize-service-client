@@ -2,3 +2,4 @@
 test/clover.xml
 test/report.xml
 .scannerwork
+.idea
